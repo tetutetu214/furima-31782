@@ -9,9 +9,7 @@
 | first_name       | string | null: false |
 | last_name_kana   | string | null: false |
 | first_name_kana  | string | null: false |
-| birth_date_1_id  | integer| null: false |
-| birth_date_2_id  | integer| null: false |
-| birth_date_3_id  | integer| null: false |
+| birth_date       | date   | null: false |
 
 ### Association
 
@@ -57,7 +55,7 @@
 
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
-| postal-code        | string     | null: false       |
+| postal_code        | string     | null: false       |
 | prefecture_id      | integer    | null: false       |
 | city               | string     | null: false       |
 | address            | string     | null: false       |
