@@ -9,13 +9,9 @@
 | first_name       | string | null: false |
 | last_name_kana   | string | null: false |
 | first_name_kana  | string | null: false |
-| birth_date_1i    | integer| null: false |
-| birth_date_2i    | integer| null: false |
-| birth_date_3i    | integer| null: false |
-
-<!-- devise使用のため未記入 -->
-| email            | string | null: false |
-| password         | string | null: false |
+| birth_date_1_id  | integer| null: false |
+| birth_date_2_id  | integer| null: false |
+| birth_date_3_id  | integer| null: false |
 
 ### Association
 
@@ -25,20 +21,17 @@
 
 ## items テーブル
 
-| Column             | Type       | Options           |
-| ------------------ | ---------- | ----------------- |
-| name               | string     | null: false       |
-| info               | text       | null: false       |
-| category           | string     | null: false       |
-| item_status        | string     | null: false       |
-| fee_status         | string     | null: false       |
-| prefecture         | string     | null: false       |
-| scheduled_delivery | string     | null: false       |
-| price              | integer    | null: false       |
-| user               | references | foreign_key: true |
-
-<!-- Active Storage使用のため未記入 -->
-| image              |            | null: false       |
+| Column                | Type       | Options           |
+| --------------------- | ---------- | ----------------- |
+| name                  | string     | null: false       |
+| info                  | text       | null: false       |
+| category_id           | integer    | null: false       |
+| item_status_id        | integer    | null: false       |
+| fee_status_id         | integer    | null: false       |
+| prefecture_id         | integer    | null: false       |
+| scheduled_delivery_id | integer    | null: false       |
+| price                 | integer    | null: false       |
+| user                  | references | foreign_key: true |
 
 ### Association
 
@@ -59,12 +52,13 @@
 - belongs_to :user
 - has_one    :post
 
+
 ## posts テーブル
 
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
 | postal-code        | string     | null: false       |
-| prefecture         | string     | null: false       |
+| prefecture_id      | integer    | null: false       |
 | city               | string     | null: false       |
 | address            | string     | null: false       |
 | building           | string     |                   |
