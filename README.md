@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :items
-- has_many :post
+- has_many :posts
 
 
 ## items テーブル
