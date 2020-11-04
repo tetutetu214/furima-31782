@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :items
-- has_many :cards
+- has_many :post
 
 
 ## items テーブル
@@ -34,21 +34,8 @@
 ### Association
 
 - belongs_to :user
-- has_one    :card
+- belongs_to :post
 
-
-## card テーブル
-
-| Column      | Type       | Options           |
-| ----------- | ---------- | ----------------- |
-| item        | references | foreign_key: true |
-| user        | references | foreign_key: true |
-
-### Association
-
-- belongs_to :item
-- belongs_to :user
-- has_one    :post
 
 
 ## posts テーブル
@@ -61,8 +48,10 @@
 | address            | string     | null: false       |
 | building           | string     |                   |
 | phone_number       | string     | null: false       |
-| card               | references | foreign_key: true |
+| user               | references | foreign_key: true |
+| item               | references | foreign_key: true |
+
 
 ### Association
-
-- belongs_to :card
+- has_many :post
+- has_many :items
