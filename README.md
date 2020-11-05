@@ -53,5 +53,5 @@
 
 
 ### Association
-- has_many :post
+- has_many :posts
 - has_many :items
