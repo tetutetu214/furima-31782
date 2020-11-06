@@ -7,7 +7,9 @@ class Item < ApplicationRecord
  belongs_to :fee_status
  belongs_to :prefecture
  belongs_to :scheduled_delivery
+ has_one_attached :image
 
+ 
  validates :category_id, numericality: { other_than: 1 } 
  validates :item_status_id, numericality: { other_than: 1 } 
  validates :fee_status_id, numericality: { other_than: 1 } 
