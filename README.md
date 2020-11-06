@@ -14,7 +14,8 @@
 ### Association
 
 - has_many :items
-  has_many :posts
+- has_many :posts
+
 
 
 ## items テーブル
@@ -36,7 +37,6 @@
 - belongs_to :user
 - has_many   :posts
 
-
 ## posts テーブル
 
 | Column             | Type       | Options           |
@@ -50,7 +50,8 @@
 | user               | references | foreign_key: true |
 | item               | references | foreign_key: true |
 
-### Association
+
 
 - belongs_to :user
 - belongs_to :item
+
