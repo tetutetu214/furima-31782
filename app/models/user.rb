@@ -6,14 +6,25 @@ class User < ApplicationRecord
 
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }
-  validates :nickname,   presence: true
-  validates :birth_date, presence: true
-  validates :last_name, presence: true
-  validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :first_name, presence: true
-  validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :last_name_kana, presence: true
-  validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :first_name_kana, presence: true
-  validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
+  
+  with_options presence: true do
+  validates :nickname
+  validates :birth_date
+  validates :last_name
+  validates :first_name
+  validates :last_name_kana
+  validates :first_name_kana
+  end  
+
+  with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
+    validates :last_name
+    validates :first_name
+  end
+
+  with_options format: {with: /\A[ァ-ヶー－]+\z/} do
+    validates :last_name_kana
+    validates :first_name_kana
+  end
+
 end
+
