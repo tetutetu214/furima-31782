@@ -1,10 +1,11 @@
 require 'rails_helper'
+
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
 
-  describe 'ユーザー新規登録がうまくいく場合' do
+  describe 'ユーザー新規登録についてのテストコード' do
     context '新規登録がうまくいくとき' do
       it 'nicknameとemail、passwordとpassword_confirmation、姓名、カナ、生年月日が存在すれば登録できる' do
         expect(@user).to be_valid
