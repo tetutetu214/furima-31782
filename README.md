@@ -46,7 +46,7 @@
 - belongs_to :item
   has_one:address
 
-## adresses テーブル
+## addresses テーブル
 | prefecture_id      | integer    | null: false       |
 | city               | string     | null: false       |
 | address            | string     | null: false       |
