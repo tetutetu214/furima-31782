@@ -14,7 +14,6 @@
 ### Association
 
 - has_many :items
-- has_many :posts
 
 
 
@@ -37,21 +36,23 @@
 - belongs_to :user
 - has_many   :posts
 
-## posts テーブル
+## orders テーブル
 
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
-| postal_code        | string     | null: false       |
+| price              | integer    | null: false       |
+| item               | references | foreign_key: true |
+
+- belongs_to :item
+  has_one:address
+
+## adresses テーブル
 | prefecture_id      | integer    | null: false       |
 | city               | string     | null: false       |
 | address            | string     | null: false       |
 | building           | string     |                   |
 | phone_number       | string     | null: false       |
-| user               | references | foreign_key: true |
-| item               | references | foreign_key: true |
+| order               | references | foreign_key: true |
 
-
-
-- belongs_to :user
-- belongs_to :item
+- belongs_to :order
 
