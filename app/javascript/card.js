@@ -29,13 +29,6 @@ const pay = () => {
       document.getElementById("card-exp-month").removeAttribute("name");
       document.getElementById("card-exp-year").removeAttribute("name");
       document.getElementById("card-cvc").removeAttribute("name");
-
-      document.getElementById("postal-code").removeAttribute("name");
-      document.getElementById("prefecture").removeAttribute("name");
-      document.getElementById("city").removeAttribute("name");
-      document.getElementById("addresses").removeAttribute("name");
-      document.getElementById("phone-number").removeAttribute("name");
-      
       document.getElementById("charge-form").submit();
 
       });

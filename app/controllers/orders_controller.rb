@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :redirect
-
+before_action :authenticate_user!  
+before_action :redirect
+  
   def index
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
       @order_address.save
       return redirect_to root_path
     else
-      render :index
+      redirect_to item_orders_path
     end
   end
 
@@ -30,6 +30,10 @@ class OrdersController < ApplicationController
   end
 
   def redirect
-    redirect_to root_path if current_user.id 
+    item = Item.find(params[:item_id])
+    id = item.orders
+      if id.present?
+       redirect_to root_path
+      end
   end
 end
