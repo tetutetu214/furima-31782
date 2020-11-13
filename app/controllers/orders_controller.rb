@@ -2,14 +2,13 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :redirect_to_me
   before_action :sold_out
-
+  before_action :item_find 
+  
   def index
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)
 
     if @order_address.valid?
@@ -41,5 +40,9 @@ class OrdersController < ApplicationController
     item = Item.find(params[:item_id])
     sold_out = item.orders
     redirect_to root_path if sold_out.present?
+  end
+
+  def item_find
+    item = Item.find(params[:item_id])
   end
 end
