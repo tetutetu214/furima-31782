@@ -37,6 +37,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('都道府県を入力してください', '都道府県は数値で入力してください')
       end
+      it 'prefecture_idが1だと保存できないこと' do
+        @order_address.prefecture_id = 1
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('都道府県は1以外の値にしてください')
+      end
       it 'cityが空だと保存できないこと' do
         @order_address.city = nil
         @order_address.valid?
