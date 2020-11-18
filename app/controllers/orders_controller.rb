@@ -26,16 +26,16 @@ class OrdersController < ApplicationController
     params.permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
-  def redirect_to_me
-    redirect_to root_path if current_user.id == item.user_id
-  end
-
   def item_find
-    item = Item.find(params[:item_id])
+    @item = Item.find(params[:item_id])
+  end
+  
+  def redirect_to_me
+    redirect_to root_path if current_user.id == @item.user_id
   end
 
   def sold_out
-    sold_out = item.orders
+    sold_out = @item.orders
     redirect_to root_path if sold_out.present?
   end
 
