@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :item_find 
+  before_action :item_find
   before_action :redirect_to_me
   before_action :sold_out
-  
+
   def index
     @order_address = OrderAddress.new
   end
@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   def item_find
     @item = Item.find(params[:item_id])
   end
-  
+
   def redirect_to_me
     redirect_to root_path if current_user.id == @item.user_id
   end
@@ -37,7 +37,6 @@ class OrdersController < ApplicationController
     sold_out = @item.orders
     redirect_to root_path if sold_out.present?
   end
-
 
   def card_check
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
